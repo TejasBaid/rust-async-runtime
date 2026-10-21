@@ -1,0 +1,22 @@
+[package]
+name = "weft-bench"
+description = "Benchmarks (vs Tokio) and an HTTP load generator for weft"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+weft.workspace = true
+weft-http.workspace = true
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false, features = ["cargo_bench_support"] }
+tokio = { version = "1", features = ["rt-multi-thread", "sync", "time", "net", "io-util"] }
+
+[[bench]]
+name = "runtime"
+harness = false
+
+[lints]
+workspace = true
