@@ -1,7 +1,5 @@
 # weft: an async runtime from scratch, and an HTTP/1.1 server on top
 
-[![CI](https://github.com/TejasBaid/rust-async-runtime/actions/workflows/ci.yml/badge.svg)](https://github.com/TejasBaid/rust-async-runtime/actions/workflows/ci.yml)
-
 **weft** is a multi-threaded, work-stealing async runtime for Rust, written from
 scratch (no mio, tokio, async-std or smol) directly on the OS readiness APIs:
 `kqueue` on macOS/BSD and `epoll` on Linux, called through raw `libc`
@@ -228,9 +226,7 @@ cargo bench -p weft-bench --bench runtime    # runtime micro-benchmarks vs Tokio
 scripts/bench_http.sh 4 64 10                # HTTP: weft vs Tokio baseline (oha + loadgen)
 ```
 
-Every network test binds to port 0. CI (`.github/workflows/ci.yml`) runs
-build, test and clippy on `ubuntu-latest` (epoll) and `macos-latest` (kqueue),
-plus `fmt`, the loom suite and `cargo doc` with warnings denied.
+Every network test binds to port 0.
 
 ### Test inventory
 
